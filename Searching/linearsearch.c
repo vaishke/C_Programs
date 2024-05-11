@@ -32,8 +32,8 @@ void main()
 }
 	float e = clock();
 	float p;
-	p=(e-s);
-	printf("\n %f",s);
-	printf("\n %f",e);
-	printf("\n %f",p);
+	p = (e - s);
+	printf("\n %f", s);
+	printf("\n %f", e);
+	printf("\n %f", p);
 }
