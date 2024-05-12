@@ -25,10 +25,19 @@ printf("\nEnter the position for the new element: ");
 scanf("%d", &pos);
 printf("\nEnter the element to be inserted: ");
 scanf("%d", &elem);
-for(i=n-1; i>=pos; i--)
+for(i=n-1; i>= (pos - 1); i--)
     a[i+1] = a[i];
-a[pos] = elem;
+a[pos - 1] = elem;
 n = n+1;
+}
+
+void update() 
+{
+printf("\nEnter the position for updating element: ");
+scanf("%d", &pos);
+printf("\nEnter new element: ");
+scanf("%d", &elem);
+a[pos - 1] = elem;
 }
 
 void del()
@@ -36,19 +45,19 @@ void del()
 printf("\nEnter the position of the element to be deleted: ");
 scanf("%d", &pos);
 elem = a[pos];
-for(i=pos; i<n-1; i++)
+for(i=pos - 1; i<n-1; i++)
     a[i] = a[i+1];
 n = n-1;
 printf("\nThe deleted element is = %d", elem);
 }
 
-void main()
+int main()
 {
     int ch;
     do
     {
         printf("\n\n--------Menu-----------\n");
-        printf("1.Create\n 2.Display\n 3.Insert\n 4.Delete\n 5.Exit\n");
+        printf(" 1. Create\n 2. Display\n 3. Insert\n 4. Update\n 5. Delete\n 6. Exit\n");
         printf("-------------------------------");
         printf("\nEnter your choice: ");
         scanf("%d", &ch);
@@ -60,15 +69,17 @@ void main()
                     break;
             case 3: insert();
                     break;
-            case 4: del();
+            case 4: update();
                     break;
-            case 5: exit(0);
+            case 5: del();
+                    break;
+            case 6: exit(0);
                     break;
             default: printf("\nInvalid choice:\n");
                      break;
         }
  }
 
-while(ch!=5);
+while(ch!=6);
 
 }
